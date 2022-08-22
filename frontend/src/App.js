@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Book from './Components/Book';
+import database from './pruebas/database.js';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <h1>Inventario</h1>
+        <hr />
+        <div>Buscar...</div>
+        {
+          database.data.books.map((book)=>
+            <Book
+              title={book.title} 
+              price={book.price} 
+              author={book.author}
+              description={book.description}
+              genre={book.genre}
+              stock={book.stock}
+            />
+          )
+        }
     </div>
   );
 }
