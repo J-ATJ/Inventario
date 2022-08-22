@@ -1,0 +1,26 @@
+{
+  "name": "inventario",
+  "version": "1.0.0",
+  "description": "Proyecto Inventario Libros",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "J-ATJ",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J-ATJ/Inventario.git"
+  },
+  "keywords": [
+    "node",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/J-ATJ/Inventario/issues"
+  },
+  "homepage": "https://github.com/J-ATJ/Inventario#readme"
+}
