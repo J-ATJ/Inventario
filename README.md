@@ -4,3 +4,7 @@
 
 Base datos en PostgreSQL
 Servidor heroku
+
+## Frontend
+
+React
