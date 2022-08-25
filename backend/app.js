@@ -1,54 +1,96 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 8000;
+
 app.use(express.json());
+app.use(cors());
 
 const UserController = require('./lib/contollers/UsersController');
 const BookController = require('./lib/contollers/BooksController');
 
-app.get("/", (req, res) => {
-  res.send('Hola backend');
-});
+const Bookmodel = require('./lib/models/Book');
+const UserModel = require('./lib/models/User');
 
-app.get("/user/signout", (req, res) => {
+const corsOptions = {
+  origin: 'http://127.0.0.1',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.get("/user/signout", cors(corsOptions), (req, res) => {
+  //delete user token
   const userSignout = UserController.userSignout();
-  res.send('<json model>');
-  //response.json(userSignout);
+  res.status(200).send('Goodbye');
 });
 
-app.post("/user/signin", (req, res) => {
-  const userSignin = UserController.userSignin();
-  res.send('<json model>');
-  //response.json(userSignin);
+app.post("/user/signin", cors(corsOptions), (req, res) => {
+  //create user token
+  const userSignin = UserController.UserSignin(
+    new UserModel({
+      "name": req.body.name,
+      "pass": req.body.pass
+    })
+  );
+  res.status(200).send('Correct SignIn');
 });
 
-app.get("/user/signout", (req, res) => {
-  res.send('<json model>');
+app.post("/user/signup", cors(corsOptions), (req, res) => {
+  //create user token
+  const userSignup = UserController.UserSignup(
+    new UserModel({
+      "name": req.body.name,
+      "pass": req.body.pass
+    })
+  );
+  res.status(200).send('Correct SignUp');
 });
 
-app.post("/user/signup", (req, res) => {
-  res.send('<json model>');
+app.get("/books/search/:title", cors(corsOptions), (req, res) => {
+  const title = req.params.title;
+  if (title == 'hola') res.status(404).json({'error': 'No se encontro'});
+  const bookController = BookController.BookSearch(title);
+  res.status(200).json(bookController);
 });
 
-app.get("/books/search/:item", (req, res) => {
-  res.send('<json model>');
+app.post("/books/add", cors(corsOptions), (req, res) => {
+  const bookController = BookController.BookAdd(
+    new Bookmodel({
+      "title": req.body.title,
+      "authors": req.body.authors,
+      "description": req.body.description,
+      "price": req.body.price,
+      "stock": req.body.stock,
+      "genre": req.body.genre,
+      "image": req.body.image
+    })
+  );
+  res.status(200).send('book added!');
 });
 
-app.post("/books/add", (req, res) => {
-  res.send('<json model>');
+app.put("/books/edit", cors(corsOptions), (req, res) => {
+  const bookController = BookController.BookEdit(
+    req.body.id,
+    new Bookmodel({
+      "title": req.body.title,
+      "authors": req.body.authors,
+      "description": req.body.description,
+      "price": req.body.price,
+      "stock": req.body.stock,
+      "genre": req.body.genre,
+      "image": req.body.image
+    })
+  );
+  res.status(200).send('book edited!');
 });
 
-app.post("/user/edit", (req, res) => {
-  res.send('<json model>');
+app.delete("/books/delete", cors(corsOptions), (req, res) => {
+  const bookController = BookController.bookDelete(req.body.id);
+  res.status(200).send('book deleted!');
 });
 
-app.get("/books/delete", (req, res) => {
-  res.send('<json model>');
-});
-
-app.get("/books/", (req, res) => {
+app.get("/books/", cors(corsOptions), (req, res) => {
   const bookView = BookController.BooksView();
-  res.json(bookView);
+  res.status(200).json(bookView);
 });
 
 app.listen(port, () => console.log(`Server started at port ${port}`));

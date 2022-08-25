@@ -1,9 +1,9 @@
-let User = class {
-  constructor() {
+class User {
+  constructor(user) {
     this.id = 0;
-    this.name = '';
-    this.pass = '';
+    this.name = user['name'];
+    this.pass = user['pass'];
   }
 };
 
-export { User };
+module.exports = User;

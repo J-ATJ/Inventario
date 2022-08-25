@@ -3,11 +3,18 @@ const UserService = require('../services/UsersService');
 
 class UserController {
 
-  static userSignin() {
+  static UserSignin(user) {
+    console.log(user);
     return '';
   }
 
-  static userSignout() {
+  static userSignout(user) {
+    console.log(user);
+    return '';
+  }
+
+  static userSignup(user) {
+    console.log(user);
     return '';
   }
 

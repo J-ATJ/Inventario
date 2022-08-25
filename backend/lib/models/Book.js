@@ -1,16 +1,15 @@
-let Book = class {
-  constructor() {
+class Book {
+  constructor(book) {
     this.id = 0;
-    this.name = '';
-    this.state = '';
-    this.title = '';
-    this.autors = '';
-    this.description = '';
-    this.price = 0.0;
-    this.stock = 0;
-    this.genre = '';
-    this.image = '';
+    this.state = 'created';
+    this.title = book['title'];
+    this.authors = book['authors'];
+    this.description = book['description'];
+    this.price = book['price'];
+    this.stock = book['stock'];
+    this.genre = book['genre'];
+    this.image = book['image'];
   }
 };
 
-export { Book };
+module.exports = Book;

@@ -1,24 +1,23 @@
 class BookViewService {
 
-  static BooksAdd() {
+  static BooksAdd(book) {
+    //add to DB
+    return '';
+  }
+
+  static BooksEdit(book) {
+    //filter
     //post
     return '';
   }
 
-  static BooksSearch() {
-    //filter
+  static BooksSearch(title) {
+    //filter in DB
     return '';
   }
 
-  static BooksDelete() {
-    //filter
+  static BooksDelete(id) {
     //delete
-    return '';
-  }
-
-  static BooksEdit() {
-    //filter
-    //post
     return '';
   }
 
