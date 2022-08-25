@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import FormPOST from './Components/FormPOST.jsx';
 import Search from './Components/Search.jsx';
 import FormPUT from './Components/FormPUT.jsx';
+import FormDELETE from './Components/FormDELETE.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Search />
         <FormPOST />
         <FormPUT />
+        <FormDELETE />
       </div>
       <div className='container'>
         {
