@@ -1,0 +1,20 @@
+.dataBar{
+    margin: 5px 0;
+    padding: 5px;
+    width: 50%;
+}
+.dataBar2{
+    margin: 5px 0;
+    padding: 5px;
+    width: 100%;
+}
+.dataBar3{
+    margin: 5px 0;
+    padding: 5px;
+    width: 25%; 
+}
+.na{
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+}

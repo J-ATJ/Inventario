@@ -19,7 +19,7 @@ function FormDELETE() {
       </Button>
 
       <Modal isOpen={state}>
-        <ModalHeader className="bg-danger text-white">
+        <ModalHeader className="bg-danger text-white na">
           <div>Eliminar Libro</div>
         </ModalHeader>
         <ModalBody>
@@ -36,7 +36,6 @@ function FormDELETE() {
             }}
           >
             <Form>
-
               <Field
                 name="title"
                 type="text"

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import '../Components-css/FormPOST.css'
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 function FormPOST() {
@@ -19,8 +20,8 @@ function FormPOST() {
       </Button>
 
       <Modal isOpen={state}>
-        <ModalHeader className="bg-success text-white">
-          <div className="container">Agregar Libro</div>
+        <ModalHeader className="bg-success text-white na">
+          <div className="na">Agregar Libro</div>
         </ModalHeader>
         <ModalBody>
           <Formik
@@ -39,42 +40,49 @@ function FormPOST() {
             }}
           >
             <Form>
-              <div className="container">
+              <div>
                 <Field
                   name="title"
                   type="text"
+                  className="dataBar"
                   placeholder="Título" required>
                 </Field>
                 <Field
                   name="authors"
                   type="text"
+                  className="dataBar"
                   placeholder="Autores" required>
                 </Field>
                 <Field
                   name="description"
                   type="text"
+                  className="dataBar2"
                   placeholder="Descripción" required>
                 </Field>
                 <Field
                   name="price"
                   type="number"
                   min="0"
+                  className="dataBar3"
                   placeholder="Precio" required>
                 </Field>
                 <Field
                   name="stock"
                   type="number"
                   min="0"
+                  className="dataBar3"
                   placeholder="Stock" required>
                 </Field>
                 <Field
                   name="genre"
                   type="text"
+                  className="dataBar"
                   placeholder="Género" required>
                 </Field>
                 <Field
                   name="image"
                   type="text"
+                  className="dataBar2"
                   placeholder="Image URL" required>
                 </Field>
                 <br></br><br></br>

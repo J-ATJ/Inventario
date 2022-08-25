@@ -1,3 +1,10 @@
 .deleteBar{
+    margin: 5px 0;
+    padding: 5px;
     width: 100%;
+}
+.na{
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
 }
