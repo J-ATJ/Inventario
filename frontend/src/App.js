@@ -4,6 +4,7 @@ import database from './pruebas/database.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import FormPOST from './Components/FormPOST.jsx';
 import Search from './Components/Search.jsx';
+import FormPUT from './Components/FormPUT.jsx';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <div className='container forms'>
         <Search />
         <FormPOST />
+        <FormPUT />
       </div>
       <div className='container'>
         {
