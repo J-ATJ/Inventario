@@ -1,17 +1,24 @@
 import './App.css';
 import Book from './Components/Book';
 import database from './pruebas/database.js';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import FormPOST from './Components/FormPOST.jsx';
+import Search from './Components/Search.jsx';
+
 function App() {
   return (
     <div className="App">
-        <h1>Inventario</h1>
-        <hr />
-        <div>Buscar...</div>
+      <h1 className='text-center bg-light h1'>Inventario</h1>
+      <div className='container forms'>
+        <Search />
+        <FormPOST />
+      </div>
+      <div className='container'>
         {
-          database.data.books.map((book)=>
+          database.data.books.map((book) =>
             <Book
-              title={book.title} 
-              price={book.price} 
+              title={book.title}
+              price={book.price}
               author={book.author}
               description={book.description}
               genre={book.genre}
@@ -19,6 +26,8 @@ function App() {
             />
           )
         }
+      </div>
+
     </div>
   );
 }
